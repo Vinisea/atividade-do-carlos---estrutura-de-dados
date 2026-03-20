@@ -1,0 +1,67 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Estudar Node.js",
+      "description": "Aprender fs",
+      "completed": false,
+      "priority": "alta",
+      "tags": [
+        "estudo",
+        "programação"
+      ],
+      "createdAt": "2026-03-19T10:00:00.000Z",
+      "updatedAt": null
+    },
+    {
+      "id": 2,
+      "title": "Criar projeto de tarefas",
+      "description": "Iniciar estrutura com JSON",
+      "completed": true,
+      "priority": "alta",
+      "tags": [
+        "projeto",
+        "node"
+      ],
+      "createdAt": "2026-03-19T11:00:00.000Z",
+      "updatedAt": "2026-03-20T13:04:29.475Z"
+    },
+    {
+      "id": 3,
+      "title": "Fazer café",
+      "description": "Preparar no Koar",
+      "completed": true,
+      "priority": "média",
+      "tags": [
+        "rotina",
+        "café"
+      ],
+      "createdAt": "2026-03-18T08:30:00.000Z",
+      "updatedAt": "2026-03-18T08:45:00.000Z"
+    },
+    {
+      "id": 4,
+      "title": "Revisar código",
+      "description": "Verificar erros no módulo fs",
+      "completed": false,
+      "priority": "média",
+      "tags": [
+        "debug",
+        "programação"
+      ],
+      "createdAt": "2026-03-19T12:00:00.000Z",
+      "updatedAt": null
+    },
+    {
+      "id": 5,
+      "title": "Organizar tarefas II",
+      "description": "Separar por prioridade",
+      "completed": false,
+      "priority": "media",
+      "tags": [
+        "organização"
+      ],
+      "updatedAt": null
+    }
+  ]
+}
