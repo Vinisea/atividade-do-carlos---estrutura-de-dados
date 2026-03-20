@@ -44,10 +44,14 @@ const marcarConcluida = async (id) => {
 
   const tarefa = json.tasks.find((p) => p.id === id);
 
-  tarefa.completed = true;
-  tarefa.updatedAt = new Date().toISOString();
-  await fs.writeFile(FILE, JSON.stringify(json, null, 2));
-  console.log(`Tarefa ${id} marcada como concluída`);
+  if (tarefa) {
+    tarefa.completed = true;
+    tarefa.updatedAt = new Date().toISOString();
+    await fs.writeFile(FILE, JSON.stringify(json, null, 2));
+    console.log(`Tarefa ${id} marcada como concluída`);
+  } else {
+    console.log(`A tarefa ${id} não foi encontrada`);
+  }
 };
 
 //5
@@ -55,10 +59,15 @@ const atualizarTitulo = async (id, novoTitulo) => {
   const json = await lerTarefas();
 
   const tarefa = json.tasks.find((p) => p.id === id);
-  tarefa.title = novoTitulo;
-  tarefa.updatedAt = new Date().toISOString();
-  await fs.writeFile(FILE, JSON.stringify(json, null, 2));
-  console.log(`Título da tarefa ${id} atualizado para: ${novoTitulo}`);
+
+  if (tarefa) {
+    tarefa.title = novoTitulo;
+    tarefa.updatedAt = new Date().toISOString();
+    await fs.writeFile(FILE, JSON.stringify(json, null, 2));
+    console.log(`Título da tarefa ${id} atualizado para: ${novoTitulo}`);
+  } else {
+    console.log(`A tarefa ${id} não existe`);
+  }
 };
 
 //6
@@ -84,10 +93,10 @@ const listarPrioridade = async () => {
 };
 
 async function executar() {
-  // lerTarefas();
+  //   lerTarefas();
   //   mostrarConcluido();
   //   adicionarTarefa()
-  marcarConcluida(2);
+  //   marcarConcluida(2);
   //   atualizarTitulo(5, "Novo Título")
   //   removerTarefa(5)
   //   listarPrioridade()
