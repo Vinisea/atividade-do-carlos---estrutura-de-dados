@@ -16,9 +16,10 @@ const mostrarConcluido = async () => {
   const json = await lerTarefas();
 
   const completas = json.tasks.filter((p) => p.completed === true);
-  console.log(completas);
-};
-
+  // console.log(completas);
+  console.log("Tarefas concluídas: ")
+  completas.forEach(a => console.log(a.title));
+}
 //3
 const adicionarTarefa = async (titulo, descricao, prioridade, tags) => {
   const json = await lerTarefas();
@@ -36,6 +37,7 @@ const adicionarTarefa = async (titulo, descricao, prioridade, tags) => {
 
   json.tasks.push(novaTarefa);
   await fs.writeFile(FILE, JSON.stringify(json, null, 2));
+  console.log("Tarefa adicionada!")
 };
 
 //4
@@ -86,19 +88,19 @@ const removerTarefa = async (id) => {
 };
 
 //7
-const listarPrioridade = async () => {
+const listarPrioridade = async (prioridade) => {
   const json = await lerTarefas();
-  const prioridade = json.tasks.filter((p) => p.priority == "alta");
-  console.log(prioridade);
+  const filtradas = json.tasks.filter((p) => p.priority == prioridade);
+  console.log(filtradas);
 };
 
 async function executar() {
   //   lerTarefas();
-  //   mostrarConcluido();
+    // mostrarConcluido();
   // adicionarTarefa("Organizar tarefas II", "Organizar a ordem das tarefas", "alta", "Organização")
   //   marcarConcluida(2);
   //   atualizarTitulo(5, "Novo Título")
   //   removerTarefa(5)
-  // listarPrioridade()
+  listarPrioridade("média")
 }
 executar();
