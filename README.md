@@ -1,10 +1,10 @@
 # Atividade do Carlos Sobre esturtura de dados
 Essa atividade consiste em fazer algumas questões relacionadas ao assunto
 
-## Tecnologias envolvidas ⚙️
+## 🛠️ Tecnologias envolvidas
 - [**JavaScript**](https://www.oracle.com/developer/javascript/)
 
-## Como rodar❓
+## ⚙️ Como rodar❓
 Execute esses passos no terminal
 ```
 git clone https://github.com/Vinisea/atividade-do-carlos---estrutura-de-dados.git
