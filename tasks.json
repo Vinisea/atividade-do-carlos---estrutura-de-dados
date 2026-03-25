@@ -11,7 +11,7 @@
         "programação"
       ],
       "createdAt": "2026-03-19T10:00:00.000Z",
-      "updatedAt": null
+      "updatedAt": "2026-03-25T12:16:15.425Z"
     },
     {
       "id": 2,
@@ -65,12 +65,21 @@
     },
     {
       "id": 6,
-      "title": "Organizar tarefas II",
-      "description": "Organizar a ordem das tarefas",
+      "title": "Estudar JavaScript",
+      "description": "Estudar JavaScript hoje",
+      "completed": false,
+      "priority": "alta",
+      "tags": "Programação",
+      "updatedAt": "2026-03-25T12:28:55.712Z"
+    },
+    {
+      "id": 1774442709699,
+      "title": "Estudar JavaScript II",
+      "description": "Estudar JavaScript hoje",
       "completed": false,
       "priority": "alta",
       "tags": [
-        "Organização"
+        "Programação"
       ],
       "updatedAt": null
     }

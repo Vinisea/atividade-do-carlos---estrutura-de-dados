@@ -17,9 +17,10 @@ const mostrarConcluido = async () => {
 
   const completas = json.tasks.filter((p) => p.completed === true);
   // console.log(completas);
-  console.log("Tarefas concluídas: ")
-  completas.forEach(a => console.log(a.title));
-}
+  console.log("Tarefas concluídas: ");
+  completas.forEach((a) => console.log(a.title));
+};
+
 //3
 const adicionarTarefa = async (titulo, descricao, prioridade, tags) => {
   const json = await lerTarefas();
@@ -37,7 +38,7 @@ const adicionarTarefa = async (titulo, descricao, prioridade, tags) => {
 
   json.tasks.push(novaTarefa);
   await fs.writeFile(FILE, JSON.stringify(json, null, 2));
-  console.log("Tarefa adicionada!")
+  console.log("Tarefa adicionada!");
 };
 
 //4
@@ -94,13 +95,78 @@ const listarPrioridade = async (prioridade) => {
   console.log(filtradas);
 };
 
+//8
+const atualizarMultiplosCampos = async (id, novoTitulo, descricao, prioridade, tags) => {
+  const json = await lerTarefas();
+  const tarefa = json.tasks.find((p) => p.id === id);
+
+  if (tarefa) {
+    tarefa.title = novoTitulo;
+    tarefa.description = descricao;
+    tarefa.priority = prioridade;
+    tarefa.tags = tags;
+    tarefa.updatedAt = new Date().toISOString();
+    await fs.writeFile(FILE, JSON.stringify(json, null, 2));
+    console.log(
+      `\nTítulo da tarefa ${id} atualizado para: ${novoTitulo} \nDescrição da tarefa ${id} atualizado para: ${descricao} \nPrioridade da tarefa ${id} atualizado para: ${prioridade} \nTags da tarefa ${id} alterada para: ${tags}\n`,
+    );
+  } else {
+    console.log(`A tarefa ${id} não existe`);
+  }
+};
+
+//9
+const adicionarTarefaComIdSeguro = async (titulo, descricao, prioridade, tags) => {
+  const json = await lerTarefas();
+
+  let id
+  do {
+    id = Date.now() + Math.floor(Math.random() * 1000);
+  } while (json.tasks.find((task) => task.id === id));
+
+  const nova = {
+    id: id,
+    title: titulo,
+    description: descricao,
+    completed: false,
+    priority: prioridade,
+    tags: [tags],
+    createdAt: new Date().toISOString,
+    updatedAt: null,
+  };
+
+  json.tasks.push(nova);
+  await fs.writeFile(FILE, JSON.stringify(json, null, 2));
+
+  console.log("Tarefa adicionada com ID seguro");
+};
+
+//10
+const toggleTarefa = async (id) => {
+  const json = await lerTarefas();
+
+  const tarefa = json.tasks.find((tasks) => tasks.id == id);
+  if (tarefa) {
+    tarefa.completed = !tarefa.completed;
+    tarefa.updatedAt = new Date().toISOString();
+    await fs.writeFile(FILE, JSON.stringify(json, null, 2));
+    console.log("Status alternados");
+  } else if (!tarefa) {
+    console.log("Tarefa não encontrada");
+    return;
+  }
+};
+
 async function executar() {
-  //   lerTarefas();
-    // mostrarConcluido();
+  // lerTarefas();
+  // mostrarConcluido();
   // adicionarTarefa("Organizar tarefas II", "Organizar a ordem das tarefas", "alta", "Organização")
-  //   marcarConcluida(2);
-  //   atualizarTitulo(5, "Novo Título")
-  //   removerTarefa(5)
-  listarPrioridade("média")
+  // marcarConcluida(2);
+  // atualizarTitulo(5, "Novo Título")
+  // removerTarefa(5)
+  // listarPrioridade("média");
+  // atualizarMultiplosCampos(6, "Estudar JavaScript", "Estudar JavaScript hoje", "alta", "Programação",);
+  // toggleTarefa(1)
+  // adicionarTarefaComIdSeguro("Estudar JavaScript II", "Estudar JavaScript hoje", "alta", "Programação");
 }
 executar();
