@@ -62,6 +62,17 @@
         "organização"
       ],
       "updatedAt": null
+    },
+    {
+      "id": 6,
+      "title": "Organizar tarefas II",
+      "description": "Organizar a ordem das tarefas",
+      "completed": false,
+      "priority": "alta",
+      "tags": [
+        "Organização"
+      ],
+      "updatedAt": null
     }
   ]
 }

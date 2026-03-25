@@ -20,16 +20,16 @@ const mostrarConcluido = async () => {
 };
 
 //3
-const adicionarTarefa = async () => {
+const adicionarTarefa = async (titulo, descricao, prioridade, tags) => {
   const json = await lerTarefas();
 
   const novaTarefa = {
     id: json.tasks.length + 1,
-    title: "Organizar tarefas II",
-    description: "Separar por prioridade",
+    title: titulo,
+    description: descricao,
     completed: false,
-    priority: "media",
-    tags: ["organização"],
+    priority: prioridade,
+    tags: [tags],
     createdAt: new Date().toISOString,
     updatedAt: null,
   };
@@ -95,10 +95,10 @@ const listarPrioridade = async () => {
 async function executar() {
   //   lerTarefas();
   //   mostrarConcluido();
-  //   adicionarTarefa()
+  // adicionarTarefa("Organizar tarefas II", "Organizar a ordem das tarefas", "alta", "Organização")
   //   marcarConcluida(2);
   //   atualizarTitulo(5, "Novo Título")
   //   removerTarefa(5)
-  //   listarPrioridade()
+  // listarPrioridade()
 }
 executar();
