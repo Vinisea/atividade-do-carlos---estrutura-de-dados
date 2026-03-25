@@ -1,4 +1,4 @@
-# Atividade do Carlos Sobre esturtura de dados
+# Atividade do Carlos sobre estrutura de dados
 Essa atividade consiste em fazer algumas questões relacionadas ao assunto
 
 ## 🛠️ Tecnologias envolvidas
