@@ -1,8 +1,8 @@
-# Atividade do Carlos SObre esturtura de dados
+# Atividade do Carlos Sobre esturtura de dados
 Essa atividade consiste em fazer algumas questões relacionadas ao assunto
 
 ## Tecnologias envolvidas ⚙️
-JavaScript
+- [**JavaScript**](https://www.oracle.com/developer/javascript/)
 
 ## Como rodar❓
 Execute esses passos no terminal
